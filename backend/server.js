@@ -3,7 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const session = require('express-session');
-const passport = require('./config/passport'); // Import the passport configuration
+const passport = require('./config/passport'); 
 
 const authRoutes = require('./routes/auth');
 const userRoutes = require('./routes/user');

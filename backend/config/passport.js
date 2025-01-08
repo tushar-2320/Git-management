@@ -4,22 +4,22 @@ const GitLabStrategy = require('passport-gitlab2').Strategy;
 const BitbucketStrategy = require('passport-bitbucket-oauth2').Strategy;
 const User = require('../models/User');
 
-// Serialize user ID to session
+
 passport.serializeUser((user, done) => {
   done(null, user.id);
 });
 
-// Deserialize user by ID from session
+
 passport.deserializeUser(async (id, done) => {
   try {
-    const user = await User.findById(id); // Using async/await
+    const user = await User.findById(id); 
     done(null, user);
   } catch (error) {
     done(error);
   }
 });
 
-// GitHub Strategy
+
 passport.use(new GitHubStrategy({
   clientID: process.env.GITHUB_CLIENT_ID,
   clientSecret: process.env.GITHUB_CLIENT_SECRET,
